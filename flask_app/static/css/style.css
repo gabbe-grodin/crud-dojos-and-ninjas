@@ -1,0 +1,153 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+  v2.0 | 20110126
+  License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/******************************************
+/*! RESPONSIVE FONT SIZING
+/*******************************************/
+
+html {
+  /* 0.0625 * 16px = 1 (i.e., 1rem = 1px) */
+  font-size: 6.25%;
+}
+body {
+  font-size: 3rem;
+}
+h3 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 4rem;
+}
+h1 {
+  font-size: 5rem;
+}
+
+/******************************************
+/*! MY STYLES
+/*******************************************/
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: yellow;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  color: azure;
+}
+
+main {
+  margin: 20px auto;
+  padding: 15px;
+  height: 800px;
+  width: 500px;
+  background-color: green;
+  box-shadow: 18px 10px rgb(69, 69, 69);
+}
+
+form {
+  width: 100%;
+}
+
+input {
+  width: 90%;
+  height: 36px;
+  margin: 10px 0;
+}
+
+input {
+  font-size: 18px;
+  border: none;
+  padding-left: 10px;
+}
+
+#dojo_name:placeholder-shown {
+  font-style: italic;
+}
+
+.btn {
+  background-color: rgb(189, 223, 252);
+  color: black;
+  font-size: 20px;
+  font-weight: 600;
+  width: 180px;
+  height: 36px;
+  box-shadow: 6px 6px rgb(69, 69, 69);
+  /* border: 6px outset rgba(21, 29, 85, 0.202); */
+  border: none;
+}
+
+.btn:hover {
+  background-color: rgb(213, 234, 252);
+  transform: scale(.936);
+  box-shadow: 3px 3px black;
+}
+
+.btn:active {
+
+}
+
+table {
+
+}
+
+.flx {
+  display: flex;
+}
+
+.mt {
+  margin-top: 118px;
+}
+
+.mb {
+  margin-bottom: 36px;
+}
+
+#hidden-h1 {
+  visibility: collapse;
+}
