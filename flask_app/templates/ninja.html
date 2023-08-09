@@ -11,8 +11,72 @@
 </head>
 <body>
   <main class="container">
-    <h1>New Ninja</h1>
+    <h1>Add Ninja</h1>
+    <hr>
+    <!-- FORM START -->
+    <form 
+    action="/add/ninja"
+    method="post">
+      <div 
+      class="flx col">
+        <label 
+        for="dojo">
+          Choose Dojo: 
+        </label>
+        <select 
+        name="dojo_id" 
+        class="input"
+        id="dojo_id">
+          {% for dojo in dojos %}
+            <option 
+            value="{{ dojo.id }}">
+              {{ dojo.dojo_name }}
+            </option>
+          {% endfor %}
+        </select>
+      </div>
+      
+      <div>
+        <label for="first_name">
+          First Name: 
+            <input 
+            type="text" 
+            name="first_name" 
+            id="first_name"
+            placeholder="first name of new ninja...">
+        </label>
+      </div>
+      <div>
+        <label for="last_name">
+          Last Name: 
+            <input 
+            type="text" 
+            name="last_name" 
+            id="last_name"
+            placeholder="last name of new ninja...">
+        </label>
+      </div>
+      <div>
+        <label for="age">
+          Age: 
+            <input 
+            type="number" 
+            name="age" 
+            id="age"
+            placeholder="age of new ninja...">
+        </label>
+      </div>
+      <input 
+        class="btn"
+        type="submit" 
+        value="Add Ninja">
+    </form>
+    <!-- FORM END -->
   </main>
-  
+  <footer>
+      <a href="/dojos">
+        Home
+      </a>
+  </footer>
 </body>
 </html>

@@ -12,9 +12,56 @@
 <body>
   <main>
     <h1>{{dojo.dojo_name}} Dojo</h1>
+    <hr>
     <div class="container">
-
+      <table>
+        <thead>
+          <tr>
+            <td>
+              ID
+            </td>
+            <td>
+              Ninja Name
+            </td>
+            <td>
+              Age
+            </td>
+            <td class="hidden">
+              Action
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              {{ ninja_id }}
+            </td>
+            <td>
+              {{ first_name }} {{ last_name }}
+            </td>
+            <td>
+              {{ age }}
+            </td>
+            <td>
+              <span>
+                <a href="/edit/ninja">Edit Ninja's Info</a>
+              </span>
+              <span>
+                |
+              </span>
+              <span>
+                <a href="/view/dojo/<int:dojo_id>">Delete Ninja</a>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </main>
+  <footer>
+    <a href="/dojos">
+      Home
+    </a>
+  </footer>
 </body>
 </html>

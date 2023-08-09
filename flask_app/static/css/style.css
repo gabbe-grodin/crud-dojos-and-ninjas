@@ -88,26 +88,29 @@ main {
   width: 500px;
   background-color: green;
   box-shadow: 18px 10px rgb(69, 69, 69);
+  line-height: 236%;
 }
 
 form {
   width: 100%;
 }
 
-input {
+input, .input {
   width: 90%;
   height: 36px;
   margin: 10px 0;
-}
-
-input {
   font-size: 18px;
   border: none;
   padding-left: 10px;
 }
 
+h2 {
+  
+}
+
 #dojo_name:placeholder-shown {
   font-style: italic;
+  font-weight: 600;
 }
 
 .btn {
@@ -124,30 +127,73 @@ input {
 
 .btn:hover {
   background-color: rgb(213, 234, 252);
-  transform: scale(.936);
-  box-shadow: 3px 3px black;
 }
 
 .btn:active {
+  transform: scale(.936);
+  box-shadow: 3px 3px black;
 
 }
 
 table {
+  width: 100%;
+}
 
+table tbody tr td {
+  font-size: 2.36rem;
+  width: 100%;
+  line-height: 120%;
+  padding: 5px;
+}
+
+table tbody tr:hover {
+  border-radius: 25%;
+  background-color: black;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: rgb(132, 255, 128);
+}
+
+footer, footer a {
+  width: 500px;
+  margin: 0 auto;
+  padding: 15px;
+  color: brown;
+}
+
+footer a:hover {
+  color: blue;
 }
 
 .flx {
   display: flex;
 }
 
+.col {
+  flex-direction: column;
+}
+
 .mt {
-  margin-top: 118px;
+  margin-top: -50px;
 }
 
 .mb {
   margin-bottom: 36px;
 }
 
-#hidden-h1 {
+.hidden {
   visibility: collapse;
+  font-size: 1px;
+  margin: 0;
+  padding: 0;
 }
+
+/* .a-marg {
+  margin: 40px;
+} */
