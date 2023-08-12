@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dojo</title>
+  <title>View Dojo</title>
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,49 +11,53 @@
 </head>
 <body>
   <main>
-    <h1>{{dojo.dojo_name}} Dojo</h1>
+    <h1>{{ dojo.dojo_name }} Dojo:</h1>
     <hr>
     <div class="container">
       <table>
         <thead>
           <tr>
-            <td>
+            <!-- <th>
               ID
-            </td>
-            <td>
+            </th> -->
+            <th>
               Ninja Name
-            </td>
-            <td>
+            </th>
+            <th>
               Age
-            </td>
-            <td class="hidden">
+            </th>
+            <th class="hidden">
               Action
-            </td>
+            </th>
           </tr>
         </thead>
         <tbody>
+          
+          {% for ninja in dojo.ninjas %}
           <tr>
+            <!-- <td>
+              {{ ninja.id }}
+            </td> -->
             <td>
-              {{ ninja_id }}
+              {{ ninja.first_name }} {{ ninja.last_name }}
             </td>
             <td>
-              {{ first_name }} {{ last_name }}
+              {{ ninja.age }}
             </td>
-            <td>
-              {{ age }}
-            </td>
-            <td>
-              <span>
-                <a href="/edit/ninja">Edit Ninja's Info</a>
+            <td class="flx f-small">
+              <span class="mr">
+                <a href="/edit/ninja">Update</a>
               </span>
               <span>
                 |
               </span>
-              <span>
-                <a href="/view/dojo/<int:dojo_id>">Delete Ninja</a>
+              <span class="ml">
+                <a href="/view/dojo/<int:dojo_id>">Delete</a>
               </span>
             </td>
           </tr>
+          {% endfor %}
+
         </tbody>
       </table>
     </div>

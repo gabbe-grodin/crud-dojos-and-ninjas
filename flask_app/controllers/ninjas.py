@@ -9,19 +9,13 @@ def index():
 
 @app.route('/view/ninja/form')
 def show_ninja_form():
-    dojos = Dojo.get_all_dojos_in_db()
+    dojos = Dojo.get_all_dojos()
     return render_template('ninja.html', dojos = dojos)
 
 @app.route('/add/ninja', methods=['POST'])
 def add_one_ninja():
-    data = {
-            "dojo_id": request.form['dojo_id'],
-            "first_name": request.form['first_name'],
-            "last_name": request.form['last_name'],
-            "age": request.form['age']
-    }
-    Ninja.save_ninja_to_db(data)
-    return redirect('/view/dojo/1')
+    Ninja.save_ninja_to_db(request.form)
+    return redirect(f'/view/dojo/{request.form["dojo_id"]}')
 
 # @app.route('/edit/ninja')
 

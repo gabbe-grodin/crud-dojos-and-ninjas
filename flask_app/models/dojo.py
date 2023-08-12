@@ -11,63 +11,54 @@ class Dojo:
 
         self.ninjas = []
 
+    # Create
     @classmethod
-    def save_dojo_to_db(cls, data):
+    def create_dojo(cls, data):
         query = """
-                INSERT INTO dojos(dojo_name, created_at, updated_at)
-                VALUES(%(dojo_name)s, NOW(), NOW());
+                INSERT INTO dojos(dojo_name)
+                VALUES(%(dojo_name)s);
                 """
-        dojo_id = connectToMySQL(cls.db).query_db(query, data)
-        return dojo_id
+        result = connectToMySQL(cls.db).query_db(query, data)
+        print(result)
+        return result
     
+    # Read
     @classmethod
-    def get_all_dojos_in_db(cls):
+    def get_all_dojos(cls):
         query = """
                 SELECT *
                 FROM dojos;
                 """
-        
         result = connectToMySQL(cls.db).query_db(query)
-
         dojos = []
-        
         for row in result:
-            dojos.append(Dojo( row ))
+            dojos.append(cls( row ))
         return dojos
     
     @classmethod
-    def get_one_dojo_in_db(cls, data):
+    def get_one_dojo_with_ninjas(cls, data):
         query = """
                 SELECT * FROM dojos
                 LEFT JOIN ninjas
-                ON ninjas.dojo_id = dojos.id
+                ON dojo_id = dojos.id
                 WHERE dojos.id = %(id)s;
                 """
-        data = {
-            "ninja_id": request.form['ninja_id'],
-            "first_name": request.form['first_name'],
-            "last_name": request.form['last_name'],
-            "age": request.form['age']
-        }
-        results = connectToMySQL(cls.db).query_db(query, {'id': id})
-        
-        if results:
-            dojo = cls(results[0])
-        
-            for result in results:
+        results = connectToMySQL(cls.db).query_db(query, data)
+        dojo = cls(results[0])
+        for row in results:
+            ninja_data = {
+                "id": row['ninjas.id'],
+                "first_name": row['first_name'],
+                "last_name": row['last_name'],
+                "age": row['age'],
+                "created_at": row['ninjas.created_at'],
+                "updated_at": row['ninjas.updated_at'],
+                "dojo_id": row['dojo_id']}
 
-                dojo.ninjas.append(
-                
-                    cls({
-                        "id": result['ninjas.id'],
-                        "first_name": result['ninjas.first_name'],
-                        "last_name": result['ninjas.last_name']
-                    })
-                )
-            return dojo
-        
-        return None   
-    
+            dojo.ninjas.append(ninja.Ninja(ninja_data))
+        return dojo
+
+    # Delete
     @classmethod
     def delete_dojo_from_db(cls, id):
         query = """

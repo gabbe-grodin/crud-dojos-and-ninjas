@@ -61,12 +61,14 @@ h3 {
   font-size: 2rem;
 }
 h2 {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 h1 {
-  font-size: 5rem;
+  font-size: 4rem;
 }
-
+.f-small {
+  font-size: 1.18rem;
+}
 /******************************************
 /*! MY STYLES
 /*******************************************/
@@ -139,15 +141,19 @@ table {
   width: 100%;
 }
 
+table thead tr th {
+  text-align: left;
+  font-size: 2rem;
+}
+
 table tbody tr td {
-  font-size: 2.36rem;
+  font-size: 2rem;
   width: 100%;
   line-height: 120%;
   padding: 5px;
 }
 
 table tbody tr:hover {
-  border-radius: 25%;
   background-color: black;
 }
 
@@ -185,6 +191,14 @@ footer a:hover {
 
 .mb {
   margin-bottom: 36px;
+}
+
+.mr {
+  margin-right: 5px;
+}
+
+.ml {
+  margin-left: 5px;
 }
 
 .hidden {

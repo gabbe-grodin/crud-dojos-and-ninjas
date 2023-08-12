@@ -5,37 +5,41 @@ from flask_app.models.ninja import Ninja
 
 @app.route('/')
 def home():
-    return render_template("index.html")
+    return redirect("/dojos")
 
+# Invisible route
 @app.route('/add_to/dojos', methods=['POST'])
 def add_dojo():
     print("request.form in add_dojo: ", request.form)
-    data = {
-        "dojo_name": request.form['dojo_name']
-    }
-    Dojo.save_dojo_to_db(data)
+
+    Dojo.create_dojo(request.form)
     return redirect("/dojos")
 
+# Viewing form to add dojo and list of all dojos
 @app.route('/dojos')
 def show_all_dojos():
-    dojos = Dojo.get_all_dojos_in_db()
+    dojos = Dojo.get_all_dojos()
     return render_template('index.html',dojos=dojos)
 
+# View of one dojo
 @app.route('/view/dojo/<int:dojo_id>')
-def show_one_dojo(id):
+def show_one_dojo_with_ninjas(dojo_id):
     data = {
-        'dojo_id': request.form['dojo_id'],
-        "first_name": request.form['first_name'],
-        "last_name": request.form['last_name'],
-        "age": request.form['age']
+            "id": dojo_id,
+            # "id": ['id'],
+            "first_name": ['first_name'],
+            "last_name": ['last_name'],
+            "age": ['age']
     }
-    Dojo.get_one_dojo_in_db(id)
-    return render_template('dojo.html')
+
+    dojo = Dojo.get_one_dojo_with_ninjas(data)
+    print("REEEEEEZZZZZUUUUUUULLLLLLTZZZZ", data)
+    if dojo:
+        return render_template('dojo.html',dojo=dojo)
+    else:
+        return redirect("/dojos")
 
 @app.route('/delete/dojo/<int:id>')
 def delete_dojo(id):
     Dojo.delete_dojo_from_db(id)
     return redirect("/dojos")
-
-# @app.route('/view/dojo/<int:dojo_id>')
-# def view_ninjas_in_dojo
