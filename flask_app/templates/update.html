@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Ninja</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="container">
+    <h1>Update Ninja</h1>
+    <hr>
+    <!-- FORM START -->
+    <form 
+    action="/update/ninja/process"
+    method="post">
+      
+      <!-- CHANGE THESE TO DYNAMIC VALUES NOT HARD CODED -->
+      <input type="hidden" name="id" value="{{ ninja.id }}"><!-- need to send in the ninja id to be edited -->
+      <!-- <input type="hidden" name="dojo_id" value="{{ ninja.dojo_id }}">need to include foreign key or dojo id because we will need to redirect to that dojo -->
+      
+      
+      <div 
+      class="flx col">
+        <label 
+        for="dojo">
+          Choose Dojo: 
+        </label>
+        <select 
+        name="dojo_id" 
+        class="input"
+        id="dojo_id">
+          {% for dojo in dojos %}
+            <option 
+            value="{{ dojo.id }}">
+              {{ dojo.dojo_name }}
+            </option>
+          {% endfor %}
+        </select>
+      </div>
+      
+      <div>
+        <label for="first_name">
+          First Name: 
+            <input 
+            type="text" 
+            name="first_name" 
+            id="first_name"
+            value="{{ ninja.first_name }}">
+        </label>
+      </div>
+      <div>
+        <label for="last_name">
+          Last Name: 
+            <input 
+            type="text" 
+            name="last_name" 
+            id="last_name"
+            value="{{ ninja.last_name }}">
+        </label>
+      </div>
+      <div>
+        <label for="age">
+          Age: 
+            <input 
+            type="number" 
+            name="age" 
+            id="age"
+            value="{{ ninja.age }}">
+        </label>
+      </div>
+      <input 
+        class="btn"
+        type="submit" 
+        value="Update Ninja">
+    </form>
+    <!-- FORM END -->
+  </main>
+  <footer>
+      <a href="/dojos">
+        Home
+      </a>
+  </footer>
+</body>
+</html>

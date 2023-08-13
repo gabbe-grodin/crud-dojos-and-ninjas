@@ -14,12 +14,14 @@
     <h1>{{ dojo.dojo_name }} Dojo:</h1>
     <hr>
     <div class="container">
+      
+      <!-- TABLE START -->
       <table>
         <thead>
           <tr>
-            <!-- <th>
+            <th>
               ID
-            </th> -->
+            </th>
             <th>
               Ninja Name
             </th>
@@ -32,12 +34,12 @@
           </tr>
         </thead>
         <tbody>
-          
+
           {% for ninja in dojo.ninjas %}
           <tr>
-            <!-- <td>
+            <td>
               {{ ninja.id }}
-            </td> -->
+            </td>
             <td>
               {{ ninja.first_name }} {{ ninja.last_name }}
             </td>
@@ -46,13 +48,13 @@
             </td>
             <td class="flx f-small">
               <span class="mr">
-                <a href="/edit/ninja">Update</a>
+                <a href="/edit/ninja/{{ ninja.id }}/form">Update</a>
               </span>
               <span>
                 |
               </span>
               <span class="ml">
-                <a href="/view/dojo/<int:dojo_id>">Delete</a>
+                <a href="/delete/ninja/{{ ninja.id }}/{{ dojo.id }}">Delete</a>
               </span>
             </td>
           </tr>
@@ -60,6 +62,8 @@
 
         </tbody>
       </table>
+      <!-- TABLE END -->
+
     </div>
   </main>
   <footer>

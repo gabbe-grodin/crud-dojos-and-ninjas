@@ -51,8 +51,7 @@ table {
 /*******************************************/
 
 html {
-  /* 0.0625 * 16px = 1 (i.e., 1rem = 1px) */
-  font-size: 6.25%;
+  font-size: 62.5%;
 }
 body {
   font-size: 3rem;
@@ -69,13 +68,10 @@ h1 {
 .f-small {
   font-size: 1.18rem;
 }
+
 /******************************************
 /*! MY STYLES
 /*******************************************/
-
-html {
-  font-size: 62.5%;
-}
 
 body {
   background-color: yellow;
@@ -106,10 +102,6 @@ input, .input {
   padding-left: 10px;
 }
 
-h2 {
-  
-}
-
 #dojo_name:placeholder-shown {
   font-style: italic;
   font-weight: 600;
@@ -123,7 +115,6 @@ h2 {
   width: 180px;
   height: 36px;
   box-shadow: 6px 6px rgb(69, 69, 69);
-  /* border: 6px outset rgba(21, 29, 85, 0.202); */
   border: none;
 }
 
@@ -134,7 +125,6 @@ h2 {
 .btn:active {
   transform: scale(.936);
   box-shadow: 3px 3px black;
-
 }
 
 table {
@@ -147,8 +137,8 @@ table thead tr th {
 }
 
 table tbody tr td {
+
   font-size: 2rem;
-  width: 100%;
   line-height: 120%;
   padding: 5px;
 }
