@@ -12,7 +12,7 @@ def home():
 # Invisible route
 @app.route('/add_to/dojos', methods=['POST'])
 def add_dojo():
-    print("request.form in add_dojo: ", request.form)
+    # print("request.form in add_dojo: ", request.form)
     dojo.Dojo.create_dojo(request.form)
     return redirect("/dojos")
 

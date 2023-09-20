@@ -1,5 +1,5 @@
 from flask_app.config.mysqlconnection import connectToMySQL
-from flask_app.models import ninja, dojo
+from flask_app.models import ninja
 
 class Dojo:
     db = 'dojos_and_ninjas'
@@ -36,7 +36,7 @@ class Dojo:
             dojos.append(cls( row ))
         return dojos
     
-
+    # GET ONE
     @classmethod
     def get_one_dojo_with_ninjas(cls, data):
         query = """
@@ -60,7 +60,7 @@ class Dojo:
         return dojo
 
 
-    # Delete
+    # DELETE
     @classmethod
     def delete_dojo_from_db(cls, id):
         query = """
