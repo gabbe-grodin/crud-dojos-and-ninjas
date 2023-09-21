@@ -24,7 +24,7 @@ def show_all_dojos():
     return render_template('index.html',dojos=dojos)
 
 
-# View of one dojo
+# View of one dojo and its ninjas
 @app.route('/view/dojo/<dojo_id>')
 def show_one_dojo_with_ninjas(dojo_id):
     data = {
